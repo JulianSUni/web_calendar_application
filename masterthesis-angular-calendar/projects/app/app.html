@@ -1,0 +1,29 @@
+<ng-template #loading>
+  <div class="card">
+    <div class="card-body text-center">
+      <i class="fas fa-spin fa-spinner fa-5x"></i> <br />
+      Loading calendar...
+    </div>
+  </div>
+</ng-template>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-xl-12" mwlDraggableScrollContainer>
+      <div class="card" *ngIf="firstCalendarLoaded; else loading">
+        <div class="card-body">
+          <ngb-tabset [destroyOnHide]="true">
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <i class="fas fa fa-calendar"></i> Migration calendar
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div class="spacer-top"><router-outlet></router-outlet></div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
